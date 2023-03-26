@@ -1,4 +1,18 @@
-
+:root {
+  --main-bg-color: hsl(180, 50%, 80%);
+  --mid-bg-color: hsl(180, 50%, 65%);
+  --sub-bg-color: hsl(180, 50%, 50%);
+}
 body {
-  margin: 0;
+  background-color: var(--main-bg-color);
+  margin: 1em;
+}
+body > nav, footer {
+  background-color: var(--sub-bg-color);
+} 
+#paginator {
+  background-color: var(--mid-bg-color);
+}
+#paginator > * {
+  margin: 0 1em;
 }
