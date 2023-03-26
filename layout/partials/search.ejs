@@ -7,7 +7,7 @@
   const regex_id = "regex";
   const search_input = {id: "search_input_id", text: "search_input-text", ignore_case: 'search_input-ignore-case', ignore_accents: 'search_input-ignore-accents', regex: 'search_input-regex', button: 'search_input-button'};
   const search_tags_id= 'search-tags';
-  %>
+%>
 
 <datalist id="<%search_tags_id%>">
   <% Object.keys(theme.search_tags).forEach(key => { %>
@@ -42,7 +42,8 @@
     search();
     event.preventDefault();
   });
-
+</script>
+<%
   const search_result_container_map = {id: "search-result-container", heading: "heading", entries: "entries"}
   const search_result_container_id = search_result_container_map.id 
   const search_result_container_heading = search_result_container_map.heading 
@@ -51,8 +52,7 @@
   const search_entries_name = "search-entries"
   const search_result_entry_map = {id: "search-result-entry", url: 'entry-url', title: 'entry-title', date: 'entry-date', content: 'entry-content'}
   const search_result_entry_id = search_result_entry_map.id;
-</script>
-
+%>
 <template id="<%search_result_container_map.id%>">
   <div id="<%search_result_container_map.id%>">
     <h2 class="<%search_result_container_map.heading%>">
@@ -96,4 +96,4 @@
   );
 </script>
 
-<<%search_result_container_map.id%> id="<%search_result_container_map.id%>" style="color: blue;">
+<search-result-container  id="<%search_result_container_map.id%>" style="color: blue;">

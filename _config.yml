@@ -15,3 +15,5 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
 - /js/th.js
+
+search_tags: ['Hexo', 'JavaScript', 'Botanical', 'Vocational', 'Cycling', 'Language']
