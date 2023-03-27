@@ -1,5 +1,12 @@
-    <nav id="menu-inner">
-      <% Object.keys(theme.menu).forEach(key => { %>
-        <a href="<%=theme.menu[key]%>"><%=key%></a>
-      <% }); %>
-      </nav>
+<header>
+  <hgroup class="header">
+    <h1><%=config.title%></h1>
+    <h2><%=config.subtitle%></h2>
+    <h3><%=config.description%></h3>
+  </hgroup>
+  <nav id="menu-inner">
+    <% Object.keys(theme.menu).forEach(key => { %>
+      <a href="<%=theme.menu[key]%>"><%=key%></a>
+    <% }); %>
+  </nav>
+</header>
