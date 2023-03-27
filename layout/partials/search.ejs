@@ -9,22 +9,22 @@
   const search_tags_id= 'search-tags';
 %>
 
-<datalist id="<%search_tags_id%>">
+<datalist id="<%=search_tags_id%>">
   <% Object.keys(theme.search_tags).forEach(key => { %>
     <option value="<%=theme.search_tags[key]%>")>
   <% }); %>
 </datalist>
 
-<div id="<%search_input.id%>">
-  <label for="<%search_input.text%>"> Enter search text:</label>
-  <input id="<%search_input.text%>" type="search" name="<%search_input.text%>" size='20' minlength='1' maxlength='255' placeholder='keyword' list="<%search_tags_id%>">
-  <input id="<%search_input.ignore_case%>" type="checkbox" checked>
-  <label for="<%search_input.ignore_case%>">Ignore case</label>
-  <input id="<%search_input.ignore_accents%>" type="checkbox" checked>
-  <label for="<%search_input.ignore_accents%>">Ignore accents</label>
-  <input id="<%search_input.regex%>" type="checkbox">
-  <label for="<%search_input.regex%>">Regular expression</label>
-  <button id="<%search_input.button%>" type='button'>Search</button>
+<div id="<%=search_input.id%>">
+  <label for="<%=search_input.text%>"> Enter search text:</label>
+  <input id="<%=search_input.text%>" type="search" name="<%=search_input.text%>" size='20' minlength='1' maxlength='255' placeholder='keyword' list="<%=search_tags_id%>">
+  <input id="<%=search_input.ignore_case%>" type="checkbox" checked>
+  <label for="<%=search_input.ignore_case%>">Ignore case</label>
+  <input id="<%=search_input.ignore_accents%>" type="checkbox" checked>
+  <label for="<%=search_input.ignore_accents%>">Ignore accents</label>
+  <input id="<%=search_input.regex%>" type="checkbox">
+  <label for="<%=search_input.regex%>">Regular expression</label>
+  <button id="<%=search_input.button%>" type='button'>Search</button>
 </div>
 <script type="module">
   import {exec_search, fetchData} from "/js/analyze-data.js";
@@ -36,7 +36,7 @@
     return false;
   }
 
-  const button = document.getElementById("<%search_input.button%>");
+  const button = document.getElementById("<%=search_input.button%>");
   console.assert(button instanceof Element, 'No button!');
   button.addEventListener('click', (event) => {
     search();
@@ -53,34 +53,34 @@
   const search_result_entry_map = {id: "search-result-entry", url: 'entry-url', title: 'entry-title', date: 'entry-date', content: 'entry-content'}
   const search_result_entry_id = search_result_entry_map.id;
 %>
-<template id="<%search_result_container_map.id%>">
-  <div id="<%search_result_container_map.id%>">
-    <h2 class="<%search_result_container_map.heading%>">
-      <slot name="<%search_result_container_map.heading%>">(Search result)</slot>
+<template id="<%=search_result_container_map.id%>">
+  <div id="<%=search_result_container_map.id%>">
+    <h2 class="<%=search_result_container_map.heading%>">
+      <slot name="<%=search_result_container_map.heading%>">(Search result)</slot>
     </h2>
-    <ul class="<%search_result_container_map.entries%>">
-      <slot name="<%search_result_container_map.entries%>"></slot>
+    <ul class="<%=search_result_container_map.entries%>">
+      <slot name="<%=search_result_container_map.entries%>"></slot>
     </ul>
   </div>
 </template>
-<template id="<%search_result_entry_map.id%>">
-  <li class="<%search_result_entry_map.id%>" slot="<%search_result_container_map.entries%>">
-    <a class="<%search_result_entry_map.url%>">
-      <span class="<%search_result_entry_map.title%>"></span>
+<template id="<%=search_result_entry_map.id%>">
+  <li class="<%=search_result_entry_map.id%>" slot="<%=search_result_container_map.entries%>">
+    <a class="<%=search_result_entry_map.url%>">
+      <span class="<%=search_result_entry_map.title%>"></span>
     </a>
-    <time class="<%search_result_entry_map.date%>"></time>
-    <p class="<%search_result_entry_map.content%>" data-length='200'></p>
+    <time class="<%=search_result_entry_map.date%>"></time>
+    <p class="<%=search_result_entry_map.content%>" data-length='200'></p>
     <img class="thumbnail"></img>
   </li>
 </template>
 
 <script type="module">
   customElements.define(
-  "<%search_result_container_map.id%>",
+  search_result_container_map.id,
   class extends HTMLElement {
     constructor() {
       super();
-      const template = document.getElementById("<%search_result_container_map.id%>");
+      const template = document.getElementById("<%=search_result_container_map.id%>");
       console.assert(template instanceof HTMLElement, `no template!`);
       const templateContent = template.content;
       console.assert(templateContent instanceof DocumentFragment, `no template content`);
@@ -96,4 +96,4 @@
   );
 </script>
 
-<search-result-container  id="<%search_result_container_map.id%>" style="color: blue;">
+<search-result-container  id="<%=search_result_container_map.id%>" style="color: blue;"></search-result-container>

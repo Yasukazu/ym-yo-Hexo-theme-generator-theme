@@ -2,5 +2,6 @@
   "name": "th",
   "version": "0.1.0",
   "description": "",
-  "private": true
+  "private": true,
+  "type": "module"
 }

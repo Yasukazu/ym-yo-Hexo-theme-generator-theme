@@ -2,6 +2,7 @@
   --main-bg-color: hsl(180, 50%, 80%);
   --mid-bg-color: hsl(180, 50%, 65%);
   --sub-bg-color: hsl(180, 50%, 50%);
+  --search-bg-color: hsl(270, 50%, 70%);
 }
 body {
   background-color: var(--main-bg-color);
@@ -15,4 +16,7 @@ body > nav, footer {
 }
 #paginator > * {
   margin: 0 1em;
+}
+#search_input_id {
+  background-color: var(--search-bg-color);
 }
