@@ -1,8 +1,10 @@
 <header>
   <hgroup class="header">
     <h1><%=config.title%></h1>
-    <h2><%=config.subtitle%></h2>
-    <h3><%=config.description%></h3>
+    <dl>
+      <dt><%=config.subtitle%></dt>
+      <dd><%=config.description%></dd>
+     </dl>
   </hgroup>
   <nav id="menu-inner">
     <% Object.keys(theme.menu).forEach(key => { %>
