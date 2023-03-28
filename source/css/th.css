@@ -8,9 +8,17 @@ body {
   background-color: var(--main-bg-color);
   margin: 1em;
 }
-body > nav, footer {
+body > header, footer {
   background-color: var(--sub-bg-color);
 } 
+header > hgroup.header > * {
+  display: inline;
+  /* display: flex;
+  flex-direction: row; */
+}
+header > hgroup.header dt {
+  margin-left: 1em;
+}
 #paginator {
   background-color: var(--mid-bg-color);
 }
